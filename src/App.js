@@ -7,9 +7,8 @@ function App() {
 
   const callFlaskAPI = async () => {
       const response = await fetch(`https://flask-hello-world-teal-ten-86.vercel.app`)
-      const newData = await response.text()
-      console.log(newData)
-      setData(newData)
+      const newData = await response.json()
+      setData(newData.message)
   };
   
   return (
