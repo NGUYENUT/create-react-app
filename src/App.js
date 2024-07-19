@@ -5,17 +5,13 @@ import './App.css';
 function App() {
   const [data, setData] = useState(null)
 
-  const callFlaskAPI =  () => {
-    const url = "flask-hello-world-teal-ten-86.vercel.app";
-    fetch(url,{
-      method: "GET",
-    }).then((res)=>{
-      console.log(res)
-      return res.text();
-    }).then((text)=>{
-     console.log(text)
-    })
-  }
+  const callFlaskAPI = async () => {
+      const response = await fetch(`https://flask-hello-world-teal-ten-86.vercel.app`)
+      const newData = await response.text()
+      console.log(newData)
+      setData(newData)
+  };
+  
   return (
     <div className="App">
       <header className="App-header">
